@@ -1,0 +1,46 @@
+- 
+
+    let icon = [
+        {
+            benefit: 'Transfer',
+            id:'icon-directions_bus'
+        },
+        {
+            benefit: 'Travel insurance',
+            id:'icon-id-card-svgrepo-com'
+        },
+        {
+            benefit: 'Professional guide',
+            id:'icon-face_4'
+        },
+        {
+            benefit: 'Travel insurance',
+            id:'icon-ticket-blank-svgrepo-com'
+        },
+    ];
+
+mixin card-tours(srcset1x, srcset2x, srcset3x, alt, title, ,...description)
+    .thumb
+        img(
+        srcset= srcset1x + '1x,' + srcset2x + '2x,' + srcset3x + '3x'
+        src= srcset1x
+        alt= alt)
+
+    h3= title 
+
+    ul
+        each val in description
+            li= val
+
+    p Included:
+
+    ul
+        each iconData in icon
+            li
+                svg(width='24' height='24' aria-label='benefit icon')
+                    use(href='/src/img/icons/symbol-defs.svg#' + iconData.id)
+            p= iconData.benefit
+    
+    p Price: + 
+
+
