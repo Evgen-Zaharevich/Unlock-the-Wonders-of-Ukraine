@@ -1,6 +1,5 @@
 - 
-
-    let icon = [
+    let iconTours = [
         {
             benefit: 'Transfer',
             id:'icon-directions_bus'
@@ -19,11 +18,17 @@
         },
     ];
 
-mixin card-tours(srcset1x, srcset2x, srcset3x, alt, title, ,...description)
+mixin list
+  ul
+    li foo
+    li bar
+    li baz
+
+mixin card-tours(srcset1x, srcset2x, srcset3x, alt, title, price,...description)
     .thumb
         img(
-        srcset= srcset1x + '1x,' + srcset2x + '2x,' + srcset3x + '3x'
-        src= srcset1x
+        srcset= '/src/img/webp/tours/' + srcset1x + ' 1x,' + '/src/img/webp/tours/' + srcset2x + ' 2x,' + '/src/img/webp/tours/' + srcset3x + ' 3x'
+        src= '/src/img/webp/tours/' + srcset1x
         alt= alt)
 
     h3= title 
@@ -35,12 +40,13 @@ mixin card-tours(srcset1x, srcset2x, srcset3x, alt, title, ,...description)
     p Included:
 
     ul
-        each iconData in icon
+        each iconData in iconTours
             li
                 svg(width='24' height='24' aria-label='benefit icon')
                     use(href='/src/img/icons/symbol-defs.svg#' + iconData.id)
             p= iconData.benefit
     
-    p Price: + 
+    p= 'Price: ' + price
+    a(href='#') Book
 
 
