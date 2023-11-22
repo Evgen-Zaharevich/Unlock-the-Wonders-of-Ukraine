@@ -1,0 +1,6 @@
+mixin gallery-item(srcset1x, srcset2x, srcset3x, alt)
+    .thumb
+        img(
+        srcset= '/src/img/webp/gallery/' + srcset1x + ' 1x,' + '/src/img/webp/gallery/' + srcset2x + ' 2x,' + '/src/img/webp/gallery/' + srcset3x + ' 3x'
+        src= '/src/img/webp/gallery/' + srcset1x
+        alt= alt)
